@@ -33,11 +33,12 @@ public class GameManager : MonoBehaviour
 
 	void EndGame()
     {
-		Debug.Log("EndGame");
-    }
+		GameIsOver = true;
+		//Debug.Log("EndGame");
+	}
 
 	public void WinLevel()
 	{
-		Debug.Log("WinLevel");
+		//Debug.Log("WinLevel");
 	}
 }
