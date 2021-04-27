@@ -49,11 +49,11 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 49f8832c5362d3642adf5a8bfed36d4e, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -91,8 +91,6 @@ ParticleSystemRenderer:
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
-  m_FreeformStretching: 0
-  m_RotateWithStretchDirection: 1
   m_VertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
@@ -106,7 +104,7 @@ ParticleSystem:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613248025}
-  serializedVersion: 7
+  serializedVersion: 6
   lengthInSec: 0.05
   simulationSpeed: 1
   stopAction: 0
@@ -2192,62 +2190,6 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-  LifetimeByEmitterSpeedModule:
-    enabled: 0
-    m_Curve:
-      serializedVersion: 2
-      minMaxState: 1
-      scalar: 1
-      minScalar: 1
-      maxCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 3
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: -0.8
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 1
-          value: 0.2
-          inSlope: -0.8
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      minCurve:
-        serializedVersion: 2
-        m_Curve:
-        - serializedVersion: 3
-          time: 0
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-    m_Range: {x: 0, y: 1}
   ForceModule:
     enabled: 0
     x:
@@ -3678,14 +3620,19 @@ ParticleSystem:
     range: {x: 0, y: 1}
   CollisionModule:
     enabled: 0
-    serializedVersion: 4
+    serializedVersion: 3
     type: 0
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
     multiplyColliderForceByCollisionAngle: 1
-    m_Planes: []
+    plane0: {fileID: 0}
+    plane1: {fileID: 0}
+    plane2: {fileID: 0}
+    plane3: {fileID: 0}
+    plane4: {fileID: 0}
+    plane5: {fileID: 0}
     m_Dampen:
       serializedVersion: 2
       minMaxState: 0
@@ -3859,14 +3806,17 @@ ParticleSystem:
     interiorCollisions: 0
   TriggerModule:
     enabled: 0
-    serializedVersion: 2
+    collisionShape0: {fileID: 0}
+    collisionShape1: {fileID: 0}
+    collisionShape2: {fileID: 0}
+    collisionShape3: {fileID: 0}
+    collisionShape4: {fileID: 0}
+    collisionShape5: {fileID: 0}
     inside: 1
     outside: 0
     enter: 0
     exit: 0
-    colliderQueryMode: 0
     radiusScale: 1
-    primitives: []
   SubModule:
     serializedVersion: 2
     enabled: 0
@@ -4831,7 +4781,7 @@ GameObject:
   - component: {fileID: 1412275302545824905}
   - component: {fileID: 1412275302545824904}
   - component: {fileID: 297796228}
-  - component: {fileID: -5182895343536023159}
+  - component: {fileID: 5506893635402537218}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -4848,7 +4798,7 @@ Transform:
   m_GameObject: {fileID: 1412275302545824886}
   m_LocalRotation: {x: 0, y: -0.3128737, z: 0, w: 0.94979477}
   m_LocalPosition: {x: -3.04, y: 0.5, z: 6.31}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 1613248026}
   m_Father: {fileID: 0}
@@ -4877,11 +4827,10 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0967b841f95ddd94ab55e3688f02c9cf, type: 2}
+  - {fileID: 2100000, guid: 86953e0667eaa6a46ab4d2024dc4ffb6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4902,7 +4851,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &1412275302545824905
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4942,11 +4890,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   juicy: 1
-  hitpoints: 15
-  blinkTime: 0.08
+  hitpoints: 45
+  blinkTime: 0.05
   hitSound: {fileID: 8300000, guid: 264b444966500fa44adeb7e1800366c7, type: 3}
-  dieSound: {fileID: 8300000, guid: b0759d0a72c446a479ec0f9c9efa4aa6, type: 3}
---- !u!114 &-5182895343536023159
+  dieSound: {fileID: 8300000, guid: 748ab4e6bc3c26e4f9fb4e14527bd534, type: 3}
+--- !u!114 &5506893635402537218
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4955,7 +4903,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1412275302545824886}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d2a0ef0914af7a41a460c4a8fab2556, type: 3}
+  m_Script: {fileID: 11500000, guid: d2d6cd4fde0d7594da4a2c06afe8b5cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 100
+  multipleHits: 0
+  damageAmount: 1
+  health: 3
+  startSpeed: 10
+  enemyExplosion: {fileID: 8300000, guid: a0c9d8cb1fbbc2c47bd292547b4aee6e, type: 3}
+  hasChildrenEffect: {fileID: 0}
+  speed: 0
+  lifeTime: 30
+  lifeTimeFactor: 1

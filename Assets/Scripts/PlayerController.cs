@@ -23,12 +23,11 @@ public class PlayerController : MonoBehaviour
     {
         playerStats = GetComponent<PlayerStats>();
         _rb = GetComponent<Rigidbody>();
-        //ps = GetComponentInChildren<ParticleSystem>();
     }
 
     private void FixedUpdate()
     {
-        canMove = CheckAlive();
+        CheckAlive();
         if (!canMove) return;
 
         //float h = Input.GetAxis("Horizontal");
@@ -56,23 +55,26 @@ public class PlayerController : MonoBehaviour
         _rb.AddForce(forceVector);
     }
 
-    bool CheckAlive()
+    void CheckAlive()
     {
-        return PlayerStats.currHealth > 0;
+        if (!(PlayerStats.currHealth > 0)) Die(); 
     }
 
     public void TakeDamage(int amount)
     {
-        GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
-        Destroy(effect, 5f);
+        Debug.Log("player took damage! left: " + PlayerStats.currHealth);
         PlayerStats.currHealth -= amount;
+        GameObject effect = (GameObject)Instantiate(hitEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 5f);
     }
 
     void Die()
     {
+
+        Debug.Log("player died!");
+        canMove = false;
+        Destroy(this.gameObject);
         GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(effect, 5f);
-        canMove = false;
-        this.gameObject.SetActive(false);
     }
 }
