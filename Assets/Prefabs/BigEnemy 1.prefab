@@ -7,7 +7,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8714706804749955719}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 377f91e68a392284b9fa5294e508b557, type: 3}
   m_Name: 
@@ -28,7 +28,7 @@ PrefabInstance:
     - target: {fileID: 1412275302545824886, guid: 12e996abf594c814dbde571bb9440e6c,
         type: 3}
       propertyPath: m_Name
-      value: BigEnemy
+      value: BigEnemy 1
       objectReference: {fileID: 0}
     - target: {fileID: 1412275302545824886, guid: 12e996abf594c814dbde571bb9440e6c,
         type: 3}

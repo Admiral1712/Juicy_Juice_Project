@@ -12,8 +12,6 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private AudioClip enemyExplosion;
 
-    [SerializeField] private HitEffect hasChildrenEffect;
-
     [HideInInspector]
     public float speed;
 
@@ -23,7 +21,6 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         speed = startSpeed;
-        hasChildrenEffect = this.gameObject.GetComponentInChildren<HitEffect>();
     }
         
     void OnTriggerEnter(Collider other)
@@ -32,7 +29,6 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             AudioSource.PlayClipAtPoint(enemyExplosion, this.transform.position);
-            if (hasChildrenEffect != null) hasChildrenEffect.PlayHit();
             other.gameObject.GetComponent<PlayerController>().TakeDamage(damageAmount);
 
             CheckState();

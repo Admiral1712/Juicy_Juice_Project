@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
+    private GameObject player;
 
-    private Vector3 offset;
+    [SerializeField] private Vector3 offset;
 
     public float turnSpeed = 0.3f;
 
@@ -14,15 +14,21 @@ public class CameraController : MonoBehaviour
     public float panSpeed = 30f;
     public float panBorderThickness = 10f;
 
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     void Start()
     {
-        offset = transform.position - player.transform.position;
-        //player = GameObject.FindGameObjectWithTag("Player"); ???
+        offset = transform.position - player.transform.position;       
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (player == null) player = GameObject.FindGameObjectWithTag("Player");
+
         if (GameManager.GameIsOver)
         {
             this.enabled = false;
