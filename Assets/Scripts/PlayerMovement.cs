@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,9 +12,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float speed = 5f;
 
+    private Rigidbody myRigidbody;
+
     void Start()
     {
-        
+        myRigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -29,7 +31,9 @@ public class PlayerMovement : MonoBehaviour
         */
         if (Input.GetKey(KeyCode.W))
         {
+            Debug.Log("W wurde gedrückt");
             impulse += new Vector3(camera.transform.forward.x, 0, camera.transform.forward.z);
+            
         }
         if (Input.GetKey(KeyCode.A))
         {
