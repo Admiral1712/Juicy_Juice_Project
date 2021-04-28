@@ -10,7 +10,9 @@ public class Enemy : MonoBehaviour
 
     public float startSpeed = 10f;
 
+    [SerializeField] private AudioClip enemyJuicyExplosion;
     [SerializeField] private AudioClip enemyExplosion;
+
 
     private LerpColor lerpColor;
 
@@ -34,7 +36,8 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.tag == "Wall") Destroy(this.gameObject);
         if (other.gameObject.tag == "Player")
         {
-            if (GameManager.makeItJuicy) AudioSource.PlayClipAtPoint(enemyExplosion, this.transform.position);
+            if (GameManager.makeItJuicy) AudioSource.PlayClipAtPoint(enemyJuicyExplosion, this.transform.position);
+            else if (GameManager.makeItMinimal) AudioSource.PlayClipAtPoint(enemyExplosion, this.transform.position);
 
             other.gameObject.GetComponent<PlayerController>().TakeDamage(damageAmount);
             CheckState();
@@ -56,7 +59,7 @@ public class Enemy : MonoBehaviour
         {
             if (GameManager.makeItJuicy)
             {
-                StartCoroutine(lerpColor.StartLerping());
+                if (!lerpColor.isRunning) StartCoroutine(lerpColor.StartLerping());
                 GameObject effect = (GameObject)Instantiate(hitEffect, transform.position, Quaternion.identity);
                 Destroy(effect, 5f);
             } else if (GameManager.makeItMinimal)

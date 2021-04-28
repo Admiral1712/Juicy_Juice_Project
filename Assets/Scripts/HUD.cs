@@ -11,6 +11,7 @@ public class HUD : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI pointCounter = null;
     [SerializeField] TextMeshProUGUI playerHealth = null;
+    [SerializeField] TextMeshProUGUI juicyText = null;
 
     public float timer, refresh, avgFramerate;
     [SerializeField] TextMeshProUGUI fpsCounter = null;
@@ -43,5 +44,12 @@ public class HUD : MonoBehaviour
     public void SetPointCounter(int value)
     {
         pointCounter.text = "Punkte: " + value.ToString();
+    }
+
+    public void SetJuicyText()
+    {
+        if (GameManager.makeItJuicy) juicyText.text = "Juicy!";
+        else if (GameManager.makeItMinimal) juicyText.text = "Minimal";
+        else juicyText.text = "None";
     }
 }

@@ -57,8 +57,15 @@ public class Aura : MonoBehaviour
 
     void PlayEffect()
     {
-        AudioSource.PlayClipAtPoint(auraSound, this.transform.position);
-        GameObject effect = (GameObject)Instantiate(auraEffect, transform.position, Quaternion.identity);
-        Destroy(effect, healingDuration);
+        if (GameManager.makeItJuicy)
+        {
+            AudioSource.PlayClipAtPoint(auraSound, this.transform.position);
+            GameObject effect = (GameObject)Instantiate(auraEffect, transform.position, Quaternion.identity);
+            Destroy(effect, healingDuration);
+        }
+        else if (GameManager.makeItMinimal)
+        {
+            AudioSource.PlayClipAtPoint(auraSound, this.transform.position);
+        }
     }
 }

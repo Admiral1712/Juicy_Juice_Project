@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1412275302545824906}
   - component: {fileID: 1412275302545824905}
   - component: {fileID: 1412275302545824904}
-  - component: {fileID: 297796228}
   - component: {fileID: 5506893635402537218}
   - component: {fileID: 5637234753240141748}
   m_Layer: 0
@@ -110,23 +109,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.25, y: 1.25, z: 1.25}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &297796228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1412275302545824886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cb2a30b24eed6640a401b10df70a226, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  juicy: 1
-  hitpoints: 45
-  blinkTime: 0.05
-  hitSound: {fileID: 8300000, guid: 264b444966500fa44adeb7e1800366c7, type: 3}
-  dieSound: {fileID: 8300000, guid: 748ab4e6bc3c26e4f9fb4e14527bd534, type: 3}
 --- !u!114 &5506893635402537218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +125,8 @@ MonoBehaviour:
   damageAmount: 1
   health: 2
   startSpeed: 10
-  enemyExplosion: {fileID: 8300000, guid: a0c9d8cb1fbbc2c47bd292547b4aee6e, type: 3}
+  enemyJuicyExplosion: {fileID: 8300000, guid: a0c9d8cb1fbbc2c47bd292547b4aee6e, type: 3}
+  enemyExplosion: {fileID: 8300000, guid: 264b444966500fa44adeb7e1800366c7, type: 3}
   deathEffect: {fileID: 2992486080825347456, guid: c56dfca791387354c881108d6fb950ae,
     type: 3}
   hitEffect: {fileID: 8265345208455155506, guid: 6870a5443d20d1349b8a8c133a599bda,
@@ -165,6 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetColor: {r: 1, g: 1, b: 1, a: 1}
   intensity: 1
-  glowDuration: 1
+  glowDuration: 0.3
   targetIntensity: 1
   minimumLumination: 0.3
+  isRunning: 0

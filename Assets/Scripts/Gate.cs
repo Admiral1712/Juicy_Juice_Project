@@ -28,7 +28,7 @@ public class Gate : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToOpenGate);
 
-        playGateOpeningClip();
+        if (GameManager.makeItJuicy || GameManager.makeItMinimal) playGateOpeningClip();
         if (gateIsOpen)
         {
             Debug.Log("Closing");

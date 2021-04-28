@@ -162,8 +162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f5951abcacb4bd47a48a3ae135c0762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetColor: {r: 0, g: 0.028968344, b: 0.5283019, a: 1}
+  targetColor: {r: 0.5801887, g: 0.6010488, b: 1, a: 1}
   intensity: 1
   glowDuration: 0.35
   targetIntensity: 1
   minimumLumination: 0.3
+  isRunning: 0

@@ -16,7 +16,7 @@ public class LerpColor : MonoBehaviour
     [SerializeField] private float targetIntensity;
     [SerializeField] private float minimumLumination = 0.3f;
 
-    private bool isRunning = false;
+    public bool isRunning = false;
 
     void Start()
     {

@@ -37,7 +37,7 @@ public class Button : MonoBehaviour
         if (other.gameObject.tag == "Player" && buttonTimer > buttonTimerThreshold)
         {
             ResetTimer();
-            AudioSource.PlayClipAtPoint(clip, transform.position, 1f);
+            if (GameManager.makeItJuicy || GameManager.makeItMinimal) AudioSource.PlayClipAtPoint(clip, transform.position, 1f);
             transform.position = Vector3.MoveTowards(transform.position, newPos, movementStep);
             triggered = true;
             StartCoroutine(gate.moveGate());

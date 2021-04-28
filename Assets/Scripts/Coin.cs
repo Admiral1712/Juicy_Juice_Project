@@ -6,8 +6,6 @@ public class Coin : MonoBehaviour
 {
     [SerializeField] private int points;
 
-    //[SerializeField] private GameObject collectEffect;
-
     [SerializeField] private AudioClip collectSound;
 
     void Start()
@@ -20,9 +18,11 @@ public class Coin : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<PlayerStats>().IncreaseScore(points);
-            //GameObject effect = (GameObject)Instantiate(collectEffect, transform.position, Quaternion.identity);
-            //Destroy(effect, 5f);
-            AudioSource.PlayClipAtPoint(collectSound, transform.position);
+
+            if (GameManager.makeItJuicy || GameManager.makeItMinimal)
+            {
+                AudioSource.PlayClipAtPoint(collectSound, transform.position);
+            }
             Destroy(this.gameObject);
         }
     }

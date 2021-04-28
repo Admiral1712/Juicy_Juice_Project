@@ -66,25 +66,36 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        Debug.Log("player took damage! left: " + PlayerStats.currHealth);
         PlayerStats.currHealth -= amount;
 
         if (GameManager.makeItJuicy)
         {
-            StartCoroutine(lerpColor.StartLerping());
+            ChangeColor();
             GameObject effect = (GameObject)Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(effect, 5f);
+        } else if (GameManager.makeItMinimal)
+        {
+            ChangeColor();
         }
+    }
+
+    void ChangeColor()
+    {
+        if (!lerpColor.isRunning) StartCoroutine(lerpColor.StartLerping());
+    }
+
+    void ChangeColorWhite()
+    {
+        if (!lerpColor.isRunning) StartCoroutine(lerpColor.StartLerpingWhite());
     }
     
     public void ReceiveHealing(int amount)
     {
-        Debug.Log("player took damage! left: " + PlayerStats.currHealth);
         PlayerStats.currHealth += amount;
 
         if (GameManager.makeItJuicy)
         {
-            StartCoroutine(lerpColor.StartLerpingWhite());
+            ChangeColorWhite();
         }
     }
 
@@ -102,6 +113,6 @@ public class PlayerController : MonoBehaviour
         } else if (GameManager.makeItMinimal)
         {
             AudioSource.PlayClipAtPoint(playerExplosion, this.transform.position);
-        }
+        } 
     }
 }

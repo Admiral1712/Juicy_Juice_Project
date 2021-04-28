@@ -15,7 +15,7 @@ public class AuraSpawner : MonoBehaviour
 
     private int enemyCount;
     [SerializeField] private int spawnThreshold = 20;
-    [SerializeField] private float spawnRate = 1f;
+    [SerializeField] private float spawnRateFactor = 1f;
 
     public float wanderRadius;
     //public float wanderTimer;
@@ -35,7 +35,7 @@ public class AuraSpawner : MonoBehaviour
         {
             CheckState();
             SpawnEnemy();
-            yield return new WaitForSeconds(waitFor * spawnRate);
+            yield return new WaitForSeconds(waitFor * spawnRateFactor);
         }
         isRunning = false;
     }
@@ -47,7 +47,6 @@ public class AuraSpawner : MonoBehaviour
             newDist = RandomNavSphere(transform.position, wanderRadius, -1);
             if (newDist.magnitude != Mathf.Infinity)
             {
-                Debug.Log("New Enemy spawned!");
                 GameObject enemyInstance = (GameObject)Instantiate(instance, newDist, Quaternion.identity);
             }
         }

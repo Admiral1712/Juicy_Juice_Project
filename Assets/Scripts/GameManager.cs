@@ -18,21 +18,28 @@ public class GameManager : MonoBehaviour
     }
 	void FixedUpdate()
 	{
+		// Update UI
 		hud.SetPointCounter(PlayerStats.currScore);
 		hud.SetHealthAmount(PlayerStats.currHealth);
+		hud.SetJuicyText();
+		// Stop here if GameIsOver
 		if (GameIsOver)
 			return;
 
+		// Juicy Control
 		if (Input.GetKey(KeyCode.J) && !makeItJuicy)
         {
 			makeItMinimal = false;
 			makeItJuicy = !makeItJuicy;
-			Debug.Log("Juicy: " + makeItJuicy);
 		}
 		if (Input.GetKey(KeyCode.M) && !makeItMinimal)		{
 			makeItJuicy = false;
 			makeItMinimal = !makeItMinimal;
-			Debug.Log("Minimal: " + makeItMinimal);
+		}
+		if (Input.GetKey(KeyCode.N))
+		{
+			makeItJuicy = false;
+			makeItMinimal = false;
 		}
 
 		if (PlayerStats.currHealth <= 0)
