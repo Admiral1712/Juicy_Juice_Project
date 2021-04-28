@@ -7,7 +7,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8714706804749955719}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 377f91e68a392284b9fa5294e508b557, type: 3}
   m_Name: 
@@ -18,6 +18,23 @@ MonoBehaviour:
   spawnThreshold: 15
   spawnRate: 1
   wanderRadius: 3
+--- !u!114 &2255578783019266166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8714706804749955719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f5951abcacb4bd47a48a3ae135c0762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetColor: {r: 0.990566, g: 0.051397298, b: 0.051397298, a: 1}
+  intensity: 1
+  glowDuration: 1
+  targetIntensity: 1
+  minimumLumination: 0.3
 --- !u!1001 &7739914578703806193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28,7 +45,7 @@ PrefabInstance:
     - target: {fileID: 1412275302545824886, guid: 12e996abf594c814dbde571bb9440e6c,
         type: 3}
       propertyPath: m_Name
-      value: BigEnemy
+      value: BigEnemy 1
       objectReference: {fileID: 0}
     - target: {fileID: 1412275302545824886, guid: 12e996abf594c814dbde571bb9440e6c,
         type: 3}
@@ -105,6 +122,11 @@ PrefabInstance:
       propertyPath: enemyExplosion
       value: 
       objectReference: {fileID: 8300000, guid: 748ab4e6bc3c26e4f9fb4e14527bd534, type: 3}
+    - target: {fileID: 5506893635402537218, guid: 12e996abf594c814dbde571bb9440e6c,
+        type: 3}
+      propertyPath: health
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12e996abf594c814dbde571bb9440e6c, type: 3}
 --- !u!1 &8714706804749955719 stripped
