@@ -112,7 +112,10 @@ MonoBehaviour:
   health: 1
   startSpeed: 10
   enemyExplosion: {fileID: 8300000, guid: 71db4af19185c83499a83948444e902d, type: 3}
-  hasChildrenEffect: {fileID: 0}
+  deathEffect: {fileID: 2992486080825347456, guid: c56dfca791387354c881108d6fb950ae,
+    type: 3}
+  hitEffect: {fileID: 8265345208455155506, guid: 6870a5443d20d1349b8a8c133a599bda,
+    type: 3}
   speed: 0
   lifeTime: 30
   lifeTimeFactor: 1

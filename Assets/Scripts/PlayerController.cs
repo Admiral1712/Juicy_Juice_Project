@@ -4,6 +4,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerStats playerStats;
 
+    private LerpColor lerpColor;
+
     [SerializeField] private float maxSpeed = 10f;
     [SerializeField] private float accelerationAmount = 10f;
     [SerializeField] private float decelerationThreshold = 0.2f;
@@ -16,13 +18,15 @@ public class PlayerController : MonoBehaviour
     private bool canMove = true;
 
     [SerializeField] private GameObject deathEffect;
-
     [SerializeField] private GameObject hitEffect;
+
+    [SerializeField] private AudioClip playerExplosion;
 
     private void Start()
     {
         playerStats = GetComponent<PlayerStats>();
         _rb = GetComponent<Rigidbody>();
+        lerpColor = GetComponent<LerpColor>();
     }
 
     private void FixedUpdate()
@@ -64,17 +68,40 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("player took damage! left: " + PlayerStats.currHealth);
         PlayerStats.currHealth -= amount;
-        GameObject effect = (GameObject)Instantiate(hitEffect, transform.position, Quaternion.identity);
-        Destroy(effect, 5f);
+
+        if (GameManager.makeItJuicy)
+        {
+            StartCoroutine(lerpColor.StartLerping());
+            GameObject effect = (GameObject)Instantiate(hitEffect, transform.position, Quaternion.identity);
+            Destroy(effect, 5f);
+        }
+    }
+    
+    public void ReceiveHealing(int amount)
+    {
+        Debug.Log("player took damage! left: " + PlayerStats.currHealth);
+        PlayerStats.currHealth += amount;
+
+        if (GameManager.makeItJuicy)
+        {
+            StartCoroutine(lerpColor.StartLerpingWhite());
+        }
     }
 
     void Die()
     {
-
         Debug.Log("player died!");
         canMove = false;
         Destroy(this.gameObject);
-        GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
-        Destroy(effect, 5f);
+
+        if (GameManager.makeItJuicy)
+        {
+            AudioSource.PlayClipAtPoint(playerExplosion, this.transform.position);
+            GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
+            Destroy(effect, 5f);
+        } else if (GameManager.makeItMinimal)
+        {
+            AudioSource.PlayClipAtPoint(playerExplosion, this.transform.position);
+        }
     }
 }

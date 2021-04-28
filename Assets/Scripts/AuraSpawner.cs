@@ -47,6 +47,7 @@ public class AuraSpawner : MonoBehaviour
             newDist = RandomNavSphere(transform.position, wanderRadius, -1);
             if (newDist.magnitude != Mathf.Infinity)
             {
+                Debug.Log("New Enemy spawned!");
                 GameObject enemyInstance = (GameObject)Instantiate(instance, newDist, Quaternion.identity);
             }
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ValueManager : MonoBehaviour
 {
-    public float playerHealth { get; private set; } = 0.9f;
+    public int playerHealth { get; private set; } = 1;
     public int pointCounter { get; private set; } = 0;
 
     HUD hud = null;
@@ -22,11 +22,11 @@ public class ValueManager : MonoBehaviour
 
     public void Reset()
     {
-        playerHealth = 1.0f;
+        playerHealth = 1;
         pointCounter = 0;
     }
 
-    public void SetPlayerHealth(float value)
+    public void SetPlayerHealth(int value)
     {
         playerHealth = value;
         hud.SetHealthAmount(playerHealth);

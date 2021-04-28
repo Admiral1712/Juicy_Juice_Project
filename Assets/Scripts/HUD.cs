@@ -10,7 +10,7 @@ public class HUD : MonoBehaviour
     public static HUD instance = null;
 
     [SerializeField] TextMeshProUGUI pointCounter = null;
-    [SerializeField] Image healthAmount = null;
+    [SerializeField] TextMeshProUGUI playerHealth = null;
 
     public float timer, refresh, avgFramerate;
     [SerializeField] TextMeshProUGUI fpsCounter = null;
@@ -29,19 +29,19 @@ public class HUD : MonoBehaviour
         fpsCounter.text = ((int) (1.0f / Time.unscaledDeltaTime)).ToString() + " FPS";
     }
 
-    public void SetHealthAmount(float value)
+    public void SetHealthAmount(int value)
     {
-        healthAmount.fillAmount = value;
+        playerHealth.text = "Leben: " + value.ToString();
     }
 
     public void Reset()
-    { 
-        healthAmount.fillAmount = 1.0f;
+    {
+        playerHealth.text = "0";
         pointCounter.text = "0";
     }
 
     public void SetPointCounter(int value)
     {
-        pointCounter.text = value.ToString();
+        pointCounter.text = "Punkte: " + value.ToString();
     }
 }

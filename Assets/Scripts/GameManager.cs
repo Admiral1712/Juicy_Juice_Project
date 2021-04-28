@@ -8,22 +8,32 @@ public class GameManager : MonoBehaviour
 
 	[SerializeField] private HUD hud;
 
-	// TODO: no effect currently
 	public static bool makeItJuicy = true;
+	public static bool makeItMinimal = false;
 
-
-    void Start()
+	void Start()
     {
 		hud = GetComponent<HUD>();
         GameIsOver = false;
     }
-	void Update()
+	void FixedUpdate()
 	{
 		hud.SetPointCounter(PlayerStats.currScore);
 		hud.SetHealthAmount(PlayerStats.currHealth);
-		if (Input.GetKey(KeyCode.J)) makeItJuicy = !makeItJuicy;
 		if (GameIsOver)
 			return;
+
+		if (Input.GetKey(KeyCode.J) && !makeItJuicy)
+        {
+			makeItMinimal = false;
+			makeItJuicy = !makeItJuicy;
+			Debug.Log("Juicy: " + makeItJuicy);
+		}
+		if (Input.GetKey(KeyCode.M) && !makeItMinimal)		{
+			makeItJuicy = false;
+			makeItMinimal = !makeItMinimal;
+			Debug.Log("Minimal: " + makeItMinimal);
+		}
 
 		if (PlayerStats.currHealth <= 0)
 		{

@@ -12,15 +12,19 @@ public class Button : MonoBehaviour
     private float movementStep = 1f;
 
     private float buttonTimer = 0f;
-    private float buttonTimerThreshold = 1.1f;
+    private float buttonTimerThreshold = 0.9f;
 
     [SerializeField] private AudioClip clip;
+
+    [SerializeField] private Gate gate;
 
     private void Awake()
     {
         originalPos = transform.position;
         newPos = originalPos + offset;
         buttonTimer = buttonTimerThreshold;
+
+        gate = GameObject.FindGameObjectWithTag("Gate").GetComponent<Gate>();
     }
 
     private void Update()
@@ -36,6 +40,7 @@ public class Button : MonoBehaviour
             AudioSource.PlayClipAtPoint(clip, transform.position, 1f);
             transform.position = Vector3.MoveTowards(transform.position, newPos, movementStep);
             triggered = true;
+            StartCoroutine(gate.moveGate());
         }
     }
 
