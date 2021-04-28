@@ -1236,6 +1236,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a30796dc3af3b7a45b138f6945298b09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  wavepointIndex: 0
+  enemy: {fileID: 0}
 --- !u!1 &1241989055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1727,6 +1730,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a30796dc3af3b7a45b138f6945298b09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  wavepointIndex: 0
+  enemy: {fileID: 0}
 --- !u!1 &1508378203
 GameObject:
   m_ObjectHideFlags: 0
@@ -2011,6 +2017,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a30796dc3af3b7a45b138f6945298b09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  wavepointIndex: 0
+  enemy: {fileID: 0}
 --- !u!1 &1736603558
 GameObject:
   m_ObjectHideFlags: 0
@@ -2504,7 +2513,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.17
+  m_Intensity: 0.1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -3081,3 +3090,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a30796dc3af3b7a45b138f6945298b09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  wavepointIndex: 0
+  enemy: {fileID: 0}
