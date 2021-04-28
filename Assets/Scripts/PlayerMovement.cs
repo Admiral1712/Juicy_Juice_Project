@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
         
 
         impulse = impulse.normalized * Time.deltaTime * speed;
+        Debug.Log(impulse);
 
         this.gameObject.GetComponent<Rigidbody>().AddForce(impulse, ForceMode.Acceleration);
     }
