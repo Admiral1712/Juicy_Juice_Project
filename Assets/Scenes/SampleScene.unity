@@ -463,6 +463,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186262223}
   m_CullTransparentMesh: 0
+--- !u!1 &331307734
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 331307735}
+  m_Layer: 0
+  m_Name: Ground_Check
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &331307735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331307734}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1367831746}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &422182348
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1951,6 +1981,18 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 86fe801424129f04b9d769d4b3f35109, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12e996abf594c814dbde571bb9440e6c, type: 3}
+--- !u!54 &1367831740 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 6573845793468647821, guid: b7e0126e8374478428359da9118df534,
+    type: 3}
+  m_PrefabInstance: {fileID: 6573845793230813804}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1367831746 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6573845793468647819, guid: b7e0126e8374478428359da9118df534,
+    type: 3}
+  m_PrefabInstance: {fileID: 6573845793230813804}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1378139506 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2295844676081758605, guid: ea6bcaf3cb9a83b4aa630507a61437ab,
@@ -3108,6 +3150,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6573845793468647821, guid: b7e0126e8374478428359da9118df534,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6573845793468647821, guid: b7e0126e8374478428359da9118df534,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6573845793468647821, guid: b7e0126e8374478428359da9118df534,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6573845793468647823, guid: b7e0126e8374478428359da9118df534,
+        type: 3}
+      propertyPath: _rb
+      value: 
+      objectReference: {fileID: 1367831740}
+    - target: {fileID: 6573845793468647823, guid: b7e0126e8374478428359da9118df534,
+        type: 3}
+      propertyPath: JumpForce
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 6573845793468647823, guid: b7e0126e8374478428359da9118df534,
+        type: 3}
+      propertyPath: gravityScale
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7e0126e8374478428359da9118df534, type: 3}

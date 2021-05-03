@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 
     private LerpColor lerpColor;
 
+    [SerializeField] private float JumpForce = 400f;							// Amount of force added when the player jumps.
     [SerializeField] private float maxSpeed = 10f;
     [SerializeField] private float accelerationAmount = 10f;
     [SerializeField] private float decelerationThreshold = 0.2f;
@@ -13,7 +14,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float Control = 1f;
     [SerializeField] private float tiltAngle = 20f;
 
-    private Rigidbody _rb;
+    /// <summary>
+    /// Implementiere Jump-Funktion
+    /// </summary>
+    bool onGround = true;
+    [SerializeField] private float gravityScale = 1.0f;
+    [SerializeField] private float globalGravity = -9.81f;
+
+
+    public Rigidbody _rb;
 
     private bool canMove = true;
 
@@ -27,6 +36,18 @@ public class PlayerController : MonoBehaviour
         playerStats = GetComponent<PlayerStats>();
         _rb = GetComponent<Rigidbody>();
         lerpColor = GetComponent<LerpColor>();
+
+    }
+
+    private void Update()
+    {
+        // Jump-Abfrage
+        if (Input.GetButtonDown("Jump") && onGround)
+        {
+            // Add a vertical force to the player.
+            _rb.AddForce(Vector3.up * JumpForce);
+            onGround = false;
+        }
     }
 
     private void FixedUpdate()
@@ -57,7 +78,22 @@ public class PlayerController : MonoBehaviour
 
         forceVector *= Control;
         _rb.AddForce(forceVector);
+
+        // Schwerkraftsanpassung für Jumps
+        Vector3 gravity = globalGravity * gravityScale * Vector3.up;
+        _rb.AddForce(gravity, ForceMode.Acceleration);
     }
+
+    /// <summary>
+    /// Abfrage, ob der Spieler auf dem Boden ist, um einen Jump ausführen zu können
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnCollisionEnter(Collision collision){
+        if (collision.gameObject){
+            onGround = true;
+        }
+    }
+
 
     void CheckAlive()
     {
