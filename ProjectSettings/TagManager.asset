@@ -7,6 +7,10 @@ TagManager:
   - Enemy
   - Collectable
   - Wall
+  - Gate
+  - Ghost
+  - Shockwave
+  - EnemySpawner
   layers:
   - Default
   - TransparentFX

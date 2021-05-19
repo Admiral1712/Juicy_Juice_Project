@@ -120,6 +120,7 @@ MonoBehaviour:
   speed: 0
   lifeTime: 30
   lifeTimeFactor: 1
+  isGhostStatus: 0
 --- !u!54 &7839749936575017054
 Rigidbody:
   m_ObjectHideFlags: 0

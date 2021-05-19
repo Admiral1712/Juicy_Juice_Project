@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private bool multipleHits = true;
     [SerializeField] private int damageAmount;
-    [SerializeField] private int health = 1;
+    public int health = 1;
 
     public float startSpeed = 10f;
 
@@ -33,13 +33,21 @@ public class Enemy : MonoBehaviour
         
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Wall") Destroy(this.gameObject);
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Wall") 
+        {
+            Destroy(this.gameObject);
+        }
+
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Shockwave")
         {
             if (GameManager.makeItJuicy) AudioSource.PlayClipAtPoint(enemyJuicyExplosion, this.transform.position);
             else if (GameManager.makeItMinimal) AudioSource.PlayClipAtPoint(enemyExplosion, this.transform.position);
 
-            other.gameObject.GetComponent<PlayerController>().TakeDamage(damageAmount);
+            if(other.gameObject.tag == "Player")
+            {
+                other.gameObject.GetComponent<PlayerController>().TakeDamage(damageAmount);
+            }
+
             CheckState();
         }
     }

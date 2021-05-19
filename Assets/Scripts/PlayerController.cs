@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -7,18 +9,20 @@ public class PlayerController : MonoBehaviour
     private LerpColor lerpColor;
 
     [SerializeField] private float JumpForce = 400f;							// Amount of force added when the player jumps.
-    [SerializeField] private float maxSpeed = 10f;
-    [SerializeField] private float accelerationAmount = 10f;
     [SerializeField] private float decelerationThreshold = 0.2f;
     [SerializeField] private float decelerationAmount = 5f;
     [SerializeField] private float Control = 1f;
     [SerializeField] private float tiltAngle = 20f;
 
+    // Pickup-Modified Variables
+    [SerializeField] private float maxSpeed = 10f;
+    [SerializeField] private float accelerationAmount = 10f;
+
     /// <summary>
     /// Implementiere Jump-Funktion
     /// </summary>
     bool onGround = true;
-    [SerializeField] private float gravityScale = 1.0f;
+    [SerializeField] private float gravityScale = 3.0f;
     [SerializeField] private float globalGravity = -9.81f;
 
 
@@ -30,6 +34,42 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject hitEffect;
 
     [SerializeField] private AudioClip playerExplosion;
+
+
+    // Pickup Coroutines
+    public IEnumerator GhostStatus()
+    {
+        GameObject.Find("Player").tag = "Ghost";
+
+        yield return new WaitForSeconds(5f);
+
+        GameObject.Find("Player").tag = "Player";
+        Debug.Log("changed");
+    }
+
+    public void GhostStatusStart()
+    {
+        StartCoroutine(GhostStatus());
+    }
+
+    public IEnumerator StatIncreaseDuration()
+    {
+        Debug.Log("Green Start");
+        maxSpeed = maxSpeed * 2;
+        accelerationAmount = accelerationAmount * 2;
+
+        yield return new WaitForSeconds(5f);
+
+        maxSpeed = maxSpeed / 2;
+        accelerationAmount = accelerationAmount / 2;
+        Debug.Log("Green Stop");
+
+    }
+
+    public void StatIncreaseDurationStart()
+    {
+        StartCoroutine(StatIncreaseDuration());
+    }
 
     private void Start()
     {
@@ -127,11 +167,18 @@ public class PlayerController : MonoBehaviour
     
     public void ReceiveHealing(int amount)
     {
-        PlayerStats.currHealth += amount;
-
-        if (GameManager.makeItJuicy)
+        if(PlayerStats.currHealth + amount <= PlayerStats.maxHealth)
         {
-            ChangeColorWhite();
+            PlayerStats.currHealth += amount;
+
+            if (GameManager.makeItJuicy)
+            {
+                ChangeColorWhite();
+            }
+        }
+        else
+        {
+            PlayerStats.currHealth = PlayerStats.maxHealth;
         }
     }
 

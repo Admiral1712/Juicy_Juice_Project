@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &208532726932378745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 208532726932378747}
+  - component: {fileID: 208532726932378744}
+  m_Layer: 0
+  m_Name: PickupSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &208532726932378747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208532726932378745}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1.672}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &208532726932378744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208532726932378745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b99501b6cb1519045ad247b782fef46d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: {x: 9, y: 0, z: 7}
+  RedBottlePrefab: {fileID: 5405684031501905283, guid: ffa5c65bef447e44fbb2df84f20c0be5,
+    type: 3}
+  BlueBottlePrefab: {fileID: 8031341077984122034, guid: ce4fac47e4577194d81122e0d63a9e33,
+    type: 3}
+  GreenBottlePrefab: {fileID: 4720272097681314970, guid: 081d88648354b4543aa01aa0c390f251,
+    type: 3}
+  BoxPrefab: {fileID: 189265635730972914, guid: 43a4d5ee1764c834a9d9f798578d62c9,
+    type: 3}
+  CoinPrefab: {fileID: 6293024881298998691, guid: 63bc96eecc18dd047a56681ba1135b92,
+    type: 3}

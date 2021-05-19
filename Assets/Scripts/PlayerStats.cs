@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     public static int currHealth;
-    public int maxHealth = 20;
+    public static int maxHealth = 20;
 
     public static int currScore = 0;
 
